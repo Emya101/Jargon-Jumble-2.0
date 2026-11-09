@@ -1,6 +1,7 @@
 
 import { ROUNDS } from "../data/words";
 import { scoreMessage } from "../utils/gameLogic";
+import "./ScoreResult.css";
 
 type ScoreResultProps = {
     score: number;
@@ -16,31 +17,47 @@ export function ScoreResult({
     onRestart,
 }: ScoreResultProps) {
     return (
-        <div className="results">
-            <p className="eyebrow">{quitEarly ? "GAME ENDED" : "ALL ROUNDS COMPLETE"}</p>
-            <h2>{quitEarly ? "Thanks for playing!" : "Game Complete! 🎉"}</h2>
-            <p className="performance">
+        <div className="score-result">
+            <p className="score-result-eyebrow">
+                {quitEarly ? "GAME ENDED" : "ALL ROUNDS COMPLETE"}
+            </p>
+
+            <h2 className="score-result-heading">
+                {quitEarly ? "Thanks for playing!" : "Game Complete! 🎉"}
+            </h2>
+
+            <p className="score-result-message">
                 {quitEarly
                     ? "Goodbye for now. Your next word challenge is waiting whenever you are."
                     : scoreMessage(score)}
             </p>
 
-            <div className="result-score">
-                <span>{quitEarly ? "Score so far" : "Final score"}</span>
-                <strong>
-                    {score} <em>/ {ROUNDS}</em>
+            <div className="score-result-card">
+                <span className="score-result-label">
+                    {quitEarly ? "Score so far" : "Final score"}
+                </span>
+
+                <strong className="score-result-value">
+                    {score}
+                    <em className="score-result-total">
+                        / {ROUNDS}
+                    </em>
                 </strong>
             </div>
 
             {quitEarly && (
-                <p className="rounds-played">
+                <p className="score-result-rounds">
                     {roundsCompleted} of {ROUNDS} rounds completed
                 </p>
             )}
 
-            <button className="submit-button play-again" onClick={onRestart}>
+            <button
+                type="button"
+                className="score-result-restart"
+                onClick={onRestart}
+            >
                 {quitEarly ? "Start Again" : "Play Again"}
             </button>
         </div>
-    )
-};
+    );
+}
