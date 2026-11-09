@@ -17,7 +17,7 @@ export function ScoreResult({
 }: ScoreResultProps) {
     return (
         <div className="results">
-            <p className="eyebrow">{quitEarly ? "GAME ENDED" : "ALL 5 ROUNDS COMPLETE"}</p>
+            <p className="eyebrow">{quitEarly ? "GAME ENDED" : "ALL ROUNDS COMPLETE"}</p>
             <h2>{quitEarly ? "Thanks for playing!" : "Game Complete! 🎉"}</h2>
             <p className="performance">
                 {quitEarly
