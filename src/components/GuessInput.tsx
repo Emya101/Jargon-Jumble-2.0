@@ -1,5 +1,6 @@
-import type { Ref } from "react";
-import type { FormEventHandler } from "react";
+
+import type { Ref, FormEventHandler } from "react";
+import "./GuessInput.css";
 
 type GuessInputProps = {
     guess: string;
@@ -9,7 +10,7 @@ type GuessInputProps = {
     inputRef: Ref<HTMLInputElement>;
     onGuessChange: (value: string) => void;
     onSubmit: FormEventHandler<HTMLFormElement>;
-}
+};
 
 export function GuessInput({
     guess,
@@ -21,15 +22,17 @@ export function GuessInput({
     onSubmit,
 }: GuessInputProps) {
     return (
-        <form className="guess-form" onSubmit={onSubmit}>
+        <form className="guess-input-form" onSubmit={onSubmit}>
             <label className="sr-only" htmlFor="guess">
                 Your guess
             </label>
+
             <div
-                className={`input-wrap ${incorrect ? "shake" : ""}`}
+                className={`guess-input-wrap ${incorrect ? "shake" : ""}`}
                 key={shakeKey}
             >
                 <input
+                    className="guess-input-field"
                     autoComplete="off"
                     disabled={locked}
                     id="guess"
@@ -40,10 +43,11 @@ export function GuessInput({
                     type="text"
                     value={guess}
                 />
+
                 {guess && !locked && (
                     <button
                         aria-label="Clear guess"
-                        className="clear-button"
+                        className="guess-input-clear"
                         onClick={() => onGuessChange("")}
                         type="button"
                     >
@@ -51,8 +55,9 @@ export function GuessInput({
                     </button>
                 )}
             </div>
+
             <button
-                className="submit-button"
+                className="guess-input-submit"
                 disabled={!guess.trim() || locked}
                 type="submit"
             >
