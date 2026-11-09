@@ -1,0 +1,166 @@
+
+/* =========================================
+   JARGON JUMBLE 2.0 — GAME CONTROLS
+   ========================================= */
+
+/* Main controls container */
+
+.controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  width: 100%;
+  margin-top: 12px;
+}
+
+/* Base button styling */
+
+.control-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+
+  flex: 1;
+  min-height: 48px;
+  padding: 12px 18px;
+
+  border: 1px solid #454b70;
+  border-radius: 12px;
+
+  background: #292f50;
+  color: #d6e8ff;
+
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease,
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+/* Button icons */
+
+.control-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  line-height: 1;
+}
+
+/* Button labels */
+
+.control-label {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+/* =========================================
+   HINT BUTTON
+   ========================================= */
+
+.hint-button {
+  color: #ead6ff;
+}
+
+.hint-button:hover:not(:disabled) {
+  background: #37325f;
+  border-color: #a38aff;
+  box-shadow: 0 4px 16px rgba(163, 138, 255, 0.15);
+}
+
+/* =========================================
+   SKIP BUTTON
+   ========================================= */
+
+.skip-button {
+  color: #d6e8ff;
+}
+
+.skip-button:hover:not(:disabled) {
+  background: #303e61;
+  border-color: #76b9ff;
+  box-shadow: 0 4px 16px rgba(118, 185, 255, 0.15);
+}
+
+/* =========================================
+   QUIT BUTTON
+   ========================================= */
+
+.quit-button {
+  color: #ffc4cf;
+}
+
+.quit-button:hover:not(:disabled) {
+  background: #513044;
+  border-color: #ff8fa3;
+  box-shadow: 0 4px 16px rgba(255, 143, 163, 0.15);
+}
+
+/* =========================================
+   GENERAL BUTTON INTERACTIONS
+   ========================================= */
+
+.control-button:hover:not(:disabled) {
+  transform: translateY(-2px);
+}
+
+.control-button:active:not(:disabled) {
+  transform: translateY(0) scale(0.98);
+}
+
+.control-button:focus-visible {
+  outline: 2px solid #a38aff;
+  outline-offset: 3px;
+}
+
+/* Disabled buttons */
+
+.control-button:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+  box-shadow: none;
+  transform: none;
+}
+
+/* =========================================
+   MOBILE RESPONSIVENESS
+   ========================================= */
+
+@media (max-width: 520px) {
+  .controls {
+    gap: 8px;
+  }
+
+  .control-button {
+    padding: 11px 8px;
+    min-height: 44px;
+    font-size: 12px;
+    gap: 5px;
+    border-radius: 10px;
+  }
+
+  .control-icon {
+    font-size: 16px;
+  }
+
+  .control-label {
+    font-size: 12px;
+  }
+}
+
+/* Respect reduced-motion preferences */
+
+@media (prefers-reduced-motion: reduce) {
+  .control-button {
+    transition: none;
+  }
+}
