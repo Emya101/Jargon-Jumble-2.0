@@ -37,7 +37,15 @@ export const WORDS: Word[] =
         {
             answer: "Inspiration",
             hint: "Gaining ideas, ideals or values from someone or something"
+        },
+        {
+            answer: "Volunteer",
+            hint: "Working for little to no financial payment"
+        },
+        {
+            answer: "Ghost",
+            hint: "an interdimensional entity that can phase through walls and haunt people"
         }
     ];
 
-export const Rounds: Number = 10
+export const ROUNDS: number = 10
