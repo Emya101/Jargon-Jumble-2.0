@@ -28,15 +28,17 @@ export function createGame(): Gameword[] {
 }
 
 export function scoreMessage(score: number) {
-    if (score === 5) return "Flawless! All tests passed. You're a natural!";
-    if (score === 4) return "Near perfect! You only missed one. Great effort!";
-    if (score === 3) return "Good effort! More than halfway there!";
+    if (score === ROUNDS / 2) return "Good effort! you were halfway there!";
+    if (score >= ROUNDS / 2 && score < ROUNDS) {
+        return "Great effort!";
+    }
+    if (score === ROUNDS) return "Flawless! All tests passed. You're a natural!";
     return "Dust yourself off and go again. There is always a way!";
 }
 
 export function isCorrectGuess(
     guess: string,
     answer: string
-): boolean{
+): boolean {
     return guess.trim().toLowerCase() === answer.toLowerCase()
 }
