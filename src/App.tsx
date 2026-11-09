@@ -121,47 +121,80 @@ function App() {
     };
   }, []);
 
-  return (
+return (
     <main className="app-shell">
-      <section className="game-wrap">
+        <section
+            className="game-wrap"
+            aria-label="Jargon Jumble word game"
+        >
 
-        <div className="game-card">
-          {finished ? (
-            <ScoreResult
-              score={score}
-              roundsCompleted={round}
-              quitEarly={quitEarly}
-              onRestart={restart}
-            />
-          ) : (
-            <GameBoard
-              word={word}
-              round={round}
-              score={score}
-              guess={guess}
-              hintVisible={hintVisible}
-              feedback={feedback}
-              shakeKey={shakeKey}
-              inputRef={inputRef}
-              onGuessChange={setGuess}
-              onSubmitGuess={submitGuess}
-              onHint={() => setHintVisible(true)}
-              onSkip={skipRound}
-              onQuit={() => setQuitConfirmation(true)}
-            />
-          )}
-        </div>
+            {/* Game header */}
 
-        {quitConfirmation && !finished && (
-          <QuitDialog
-            onConfirm={confirmQuit}
-            onCancel={() => setQuitConfirmation(false)}
-          />
-        )}
+            <header className="page-header">
+                <div className="brand">
+                    <div className="brand-mark">
+                        <span>J</span>
+                    </div>
 
-      </section>
+                    <h1>JARGON JUMBLE</h1>
+
+                    <span className="version">
+                        2.0
+                    </span>
+                </div>
+
+                <p className="subtitle">
+                    Unscramble the word. Test your knowledge.
+                </p>
+            </header>
+
+            {/* Main game container */}
+
+            <div className="game-card">
+                {finished ? (
+                    <ScoreResult
+                        score={score}
+                        roundsCompleted={round}
+                        quitEarly={quitEarly}
+                        onRestart={restart}
+                    />
+                ) : (
+                    <GameBoard
+                        word={word}
+                        round={round}
+                        score={score}
+                        guess={guess}
+                        hintVisible={hintVisible}
+                        feedback={feedback}
+                        shakeKey={shakeKey}
+                        inputRef={inputRef}
+                        onGuessChange={setGuess}
+                        onSubmitGuess={submitGuess}
+                        onHint={() => setHintVisible(true)}
+                        onSkip={skipRound}
+                        onQuit={() => setQuitConfirmation(true)}
+                    />
+                )}
+            </div>
+
+            {/* Quit confirmation */}
+
+            {quitConfirmation && !finished && (
+                <QuitDialog
+                    onConfirm={confirmQuit}
+                    onCancel={() => setQuitConfirmation(false)}
+                />
+            )}
+
+            {/* Footer */}
+
+            <p className="footer-note">
+                Five words. One guess each. How many can you solve?
+            </p>
+
+        </section>
     </main>
-  );
+);
 }
 
 export default App
