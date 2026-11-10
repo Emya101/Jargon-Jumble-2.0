@@ -4,5 +4,5 @@ import react from "@vitejs/plugin-react";
 
 export default defineConfig({
   plugins: [react()],
-  base: "/Jargon-Jumble-Game/",
+  base: "/Jargon-Jumble-2.0/",
 });
