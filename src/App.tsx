@@ -189,7 +189,7 @@ return (
             {/* Footer */}
 
             <p className="footer-note">
-                Five words. One guess each. How many can you solve?
+                Ten words. One guess each. How many can you solve?
             </p>
 
         </section>
